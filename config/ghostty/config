@@ -1,0 +1,19 @@
+theme = rose-pine
+background = #000000
+#window-padding-balance = false
+#window-padding-color = extend-always
+window-decoration= none
+font-size = 15
+shell-integration-features = no-cursor,no-sudo,no-title
+gtk-titlebar = false
+
+#window padidng
+window-padding-x = 0,0
+window-padding-y = 0,0
+
+# window transparency
+# background-opacity = 0.9
+
+clipboard-write = allow
+
+mouse-hide-while-typing = true
