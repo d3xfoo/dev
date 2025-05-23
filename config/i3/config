@@ -232,12 +232,28 @@ bindsym Mod1+b exec firefox
 bindsym Mod1+c exec google-chrome-stable
 
 # Screenshot
-# select area & copy to clipboard + save as file
-bindsym Shift+Print exec sh -c "maim -s ~/Pictures/Screenshots/selection/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+# Screenshot Selection
+bindsym Control+Print exec sh -c "maim -s ~/Pictures/Screenshots/selection/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+# Screenshot Active Window
+bindsym Print exec sh -c "maim -i $(xdotool getactivewindow) ~/Pictures/Screenshots/active/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+# Screenshot of full monitor 
+bindsym Shift+Print exec sh -c "maim -g 1920x1080+1920+0 ~/Pictures/Screenshots/full/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+
+# OR (if you prefer capturing the monitor under the mouse cursor)
+# Screenshot of Monitor Under Cursor (requires xdotool)
+# bindsym Print exec sh -c "eval $(xdotool getmouselocation --shell); \
+# MONITOR_INFO=$(xrandr | grep ' connected' | awk -v x=$X -v y=$Y '{ \
+#   split($3, geo, /[x+]/); \
+#   width=geo[1]; height=geo[2]; x_offset=geo[3]; y_offset=geo[4]; \
+#   if (x >= x_offset && x < x_offset + width && y >= y_offset && y < y_offset + height) { \
+#     print $3; exit; \
+#   } \
+# }'); \
+# maim -g $MONITOR_INFO ~/Pictures/Screenshots/current_monitor/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+
+
 
 hide_edge_borders smart
-
-
 new_window none
 new_float none
 
