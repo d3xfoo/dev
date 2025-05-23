@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/zsh
 
-REPO_PATH="$HOME/personal/dev"
+REPO_PATH="$HOME/SecondBrain/"
 cd "$REPO_PATH" || exit 1
 
 if [ -n "$(git status --porcelain)" ]; then
     git add .
-    git commit -m "dev-commit: $(date +'%Y-%m-%d %H:%M:%S')"
+    git commit -m "auto commit: $(date +'%Y-%m-%d %H:%M:%S')"
     git push origin main
 else
     echo "No changes to commit."
 fi
-

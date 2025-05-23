@@ -1,0 +1,72 @@
+#!/usr/bin/env zsh
+setopt extended_glob
+
+# === Define groups ===
+GROUP_NAMES=("Config" "Scripts")
+
+# Config group
+Config_source="$HOME/personal/dev/config"
+Config_target="$HOME/.config"
+Config_items=("ghostty" "i3" "tmux" "picom")
+
+# Scripts group
+Scripts_source="$HOME/personal/dev/scripts"
+Scripts_target="$HOME/.local/scripts"
+Scripts_items=( "dev_commit" "cleanvim" "push_notes" "og" "on" "symlinks" "tmux_sessionizer")
+
+echo "--- Starting Symlink Management ---"
+
+# === Loop through groups ===
+for group in "${GROUP_NAMES[@]}"; do
+  echo "\nProcessing group: $group"
+
+  eval "src_dir=\"\$${group}_source\""
+  eval "tgt_dir=\"\$${group}_target\""
+  eval "items=(\"\${${group}_items[@]}\")"
+
+  if [[ -z "$src_dir" || -z "$tgt_dir" ]]; then
+    echo "  Error: Missing source or target path for group '$group'. Skipping."
+    continue
+  fi
+
+  mkdir -p "$tgt_dir" || {
+    echo "  Error: Could not create target directory '$tgt_dir'. Skipping group."
+    continue
+  }
+
+  for item in "${items[@]}"; do
+    src_item="$src_dir/$item"
+    tgt_item="$tgt_dir/$item"
+
+    echo "  Linking: $item"
+
+    if [ ! -e "$src_item" ]; then
+      echo "    Warning: '$src_item' does not exist. Skipping."
+      continue
+    fi
+
+    if [ -L "$tgt_item" ]; then
+      echo "    Found existing symlink. Removing: '$tgt_item'"
+      rm "$tgt_item" || {
+        echo "    Error: Could not remove existing symlink. Skipping."
+        continue
+      }
+    elif [ -e "$tgt_item" ]; then
+      echo "    Found regular file/dir. Backing up to '$tgt_item.bak'"
+      mv "$tgt_item" "$tgt_item.bak" || {
+        echo "    Error: Backup failed. Skipping."
+        continue
+      }
+    fi
+
+    ln -s "$src_item" "$tgt_item"
+    if [ $? -eq 0 ]; then
+      echo "    Success: Linked '$src_item' → '$tgt_item'"
+    else
+      echo "    Error: Failed to link."
+    fi
+  done
+done
+
+echo "\n--- Symlink Management Complete ---"
+
