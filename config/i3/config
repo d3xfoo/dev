@@ -233,9 +233,9 @@ bindsym Mod1+c exec google-chrome-stable
 
 # Screenshot
 # Screenshot Selection
-bindsym Control+Print exec sh -c "maim -s ~/Pictures/Screenshots/selection/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+bindsym Print exec sh -c "maim -s ~/Pictures/Screenshots/selection/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
 # Screenshot Active Window
-bindsym Print exec sh -c "maim -i $(xdotool getactivewindow) ~/Pictures/Screenshots/active/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
+# bindsym Print exec sh -c "maim -i $(xdotool getactivewindow) ~/Pictures/Screenshots/active/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
 # Screenshot of full monitor 
 bindsym Shift+Print exec sh -c "maim -g 1920x1080+1920+0 ~/Pictures/Screenshots/full/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
 
