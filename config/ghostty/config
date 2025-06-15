@@ -9,7 +9,7 @@ gtk-titlebar = false
 
 #window padidng
 # window-padding-x = 0,0
-# window-padding-y = 0,0
+window-padding-y = 0,0
 
 # window transparency
 background-opacity = 0.9
