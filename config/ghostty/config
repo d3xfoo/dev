@@ -12,7 +12,7 @@ gtk-titlebar = false
 window-padding-y = 0,0
 
 # window transparency
-background-opacity = 0.9
+# background-opacity = 0.9
 
 clipboard-write = allow
 

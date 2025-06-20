@@ -1,0 +1,30 @@
+alias vim="nvim"
+alias update="sudo pacman -Syu"
+alias chex="chmod +x"
+alias i3conf="vim ~/.config/i3/config"
+alias vimconf="cd ~/.config/nvim/ && nvim"
+alias caps="setxkbmap -option caps:escape"
+alias tsn="ts-node"
+
+#Brightness
+alias brt+="brightnessctl set +10%"
+alias brt-="brightnessctl set 10%-"
+
+#Obsidian and Vim workflow zsh_aliases
+alias oo="cd ~/SecondBrain/"
+alias or="cd ~/SecondBrain/ && vim inbox/*.md"
+
+
+# ~/.zsh_aliases
+nvim() {
+    command nvim "$@"
+}
+
+# webdev
+alias npmcreate="npm create vite@latest ."
+
+
+## functions
+mcd() {
+    mkdir -p "$1" && cd "$1"
+}
