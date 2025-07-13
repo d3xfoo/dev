@@ -54,7 +54,8 @@ floating_modifier Mod1
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym Mod1+Return exec ghostty
+# bindsym Mod1+Return exec ghostty
+bindsym Mod1+g exec ghostty
 # kill focused window
 bindsym Mod1+Shift+q kill
 
@@ -230,6 +231,8 @@ bindsym mod1+Ctrl+d exec poweroff
 #Application keybindings
 bindsym Mod1+b exec firefox
 bindsym Mod1+c exec google-chrome-stable
+# bindsym Mod1+m exec spotube
+# bindsym Mod1+t exec thunar
 
 # Screenshot
 # Screenshot Selection
