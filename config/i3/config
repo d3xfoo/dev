@@ -232,7 +232,7 @@ bindsym mod1+Ctrl+d exec poweroff
 bindsym Mod1+b exec firefox
 bindsym Mod1+c exec google-chrome-stable
 # bindsym Mod1+m exec spotube
-# bindsym Mod1+t exec thunar
+bindsym Mod1+t exec thunar
 
 # Screenshot
 # Screenshot Selection

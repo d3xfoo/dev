@@ -31,5 +31,5 @@
 #define RGB_MATRIX_DEFAULT_SAT 255
 
 /* Home Row Mods */
-#define TAPPING_TERM 150
+#define TAPPING_TERM 160
 #define PERMISSIVE_HOLD
