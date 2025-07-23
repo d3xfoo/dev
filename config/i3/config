@@ -222,6 +222,9 @@ exec --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --rate 144 -
 # exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id picom
 
+# keypress repeat rate
+exec_always --no-startup-id xset r rate 200 50
+
 #System Commands
 bindsym mod1+Ctrl+l exec betterlockscreen -l dim
 bindsym mod1+Ctrl+s exec systemctl suspend
