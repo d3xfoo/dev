@@ -92,7 +92,7 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+z split h
+bindsym Mod1+- split h
 
 # split in vertical orientation
 bindsym Mod1+v split v
@@ -236,6 +236,7 @@ bindsym Mod1+b exec firefox
 bindsym Mod1+c exec google-chrome-stable
 # bindsym Mod1+m exec spotube
 bindsym Mod1+t exec thunar
+bindsym Mod1+z exec zen-browser
 
 # Screenshot
 # Screenshot Selection
