@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/links.yaml"
+DEFAULT_BROWSER="google-chrome-stable"
+
+# Make sure yq is installed
+if ! command -v yq >/dev/null; then
+    echo "yq is required. Install it with: sudo pacman -S go-yq" >&2
+    exit 1
+fi
+
+# Autocomplete list in dmenu
+input=$(yq e '.[].name' "$CONFIG" | dmenu -i -p "Search or open:")
+[ -z "$input" ] && exit 0
+
+# Split first word as name, rest as query
+name=$(echo "$input" | awk '{print $1}')
+query=$(echo "$input" | cut -d' ' -f2-)
+
+# Extract fields
+browser=$(yq e ".[] | select(.name == \"$name\") | .browser" "$CONFIG")
+[ "$browser" = "null" ] && browser="$DEFAULT_BROWSER"
+
+url=$(yq e ".[] | select(.name == \"$name\") | .url" "$CONFIG")
+search_url=$(yq e ".[] | select(.name == \"$name\") | .search_url" "$CONFIG")
+[ "$search_url" = "null" ] && search_url=""
+
+# Open link or search
+if [ -n "$query" ] && [ -n "$search_url" ]; then
+    encoded_query=$(printf '%s' "$query" | jq -sRr @uri)
+    "$browser" "${search_url}${encoded_query}" >/dev/null 2>&1 &
+else
+    "$browser" "$url" >/dev/null 2>&1 &
+fi
+
