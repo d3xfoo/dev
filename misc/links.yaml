@@ -1,0 +1,32 @@
+- name: gg
+  url: https://google.com
+  search_url: https://www.google.com/search?q=
+
+- name: yt
+  url: https://youtube.com
+  search_url: https://www.youtube.com/results?search_query=
+  browser: firefox
+
+- name: rd
+  url: https://reddit.com
+  search_url: https://www.reddit.com/search/?q=
+
+- name: so
+  url: https://stackoverflow.com
+  search_url: https://stackoverflow.com/search?q=
+  browser: google-chrome-stable
+
+#Github and adjencent
+- name: gitme
+  url: https://github.com/d3xfoo?tab=repositories
+
+- name: vim
+  url: https://github.com/d3xfoo/nvim
+
+- name: dev
+  url: https://github.com/d3xfoo/dev
+
+
+- name: gitu
+  url: https://githb.com/
+  search_url: https://github.com/

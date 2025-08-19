@@ -258,7 +258,8 @@ bindsym Shift+Print exec sh -c "maim -g 1920x1080+1920+0 ~/Pictures/Screenshots/
 # }'); \
 # maim -g $MONITOR_INFO ~/Pictures/Screenshots/current_monitor/screenshot_$(date +%s).png | xclip -selection clipboard -t image/png"
 
-
+#dlinks
+bindsym Mod1+i exec --no-startup-id /home/bashneko/.local/scripts/dlinks
 
 hide_edge_borders smart
 new_window none

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CONFIG="$HOME/.config/links.yaml"
+CONFIG="$HOME/personal/dev/misc/links.yaml"
 DEFAULT_BROWSER="google-chrome-stable"
 
 # Make sure yq is installed
