@@ -12,7 +12,7 @@ Config_items=("ghostty" "i3" "tmux" "picom")
 # Scripts group
 Scripts_source="$HOME/personal/dev/scripts"
 Scripts_target="$HOME/.local/scripts"
-Scripts_items=("dlinks" "nvim_update" " dev_commit" "cleanvim" "push_notes" "og" "on" "symlinks" "tmux_sessionizer")
+Scripts_items=("open_git" "dlinks" "nvim_update" " dev_commit" "cleanvim" "push_notes" "og" "on" "symlinks" "tmux_sessionizer")
 
 echo "--- Starting Symlink Management ---"
 

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+remote="origin"
+[[ "$1" == "-u" ]] && remote="upstream"
+
+url=$(git remote get-url "$remote" 2>/dev/null) || { 
+    echo "Error: No $remote remote found"
+    echo "Available remotes:"
+    git remote -v
+    exit 1
+}
+
+# Remove .git suffix
+url=${url%.git}
+
+# Convert SSH to HTTPS if needed
+if [[ "$url" == git@github.com:* ]]; then
+    url=${url#git@github.com:}
+    url="https://github.com/$url"
+fi
+
+xdg-open "$url" &>/dev/null
