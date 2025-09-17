@@ -30,3 +30,15 @@
 - name: gitu
   url: https://githb.com/
   search_url: https://github.com/
+
+- name: wimg
+  url: https://github.com/d3xfoo/wimg
+
+- name: dex
+  url: https://github.com/d3xfoo/d3x.foo
+
+- name: tweakcn
+  url: https://github.com/jnsahaj/tweakcn
+
+- name: chat
+  url: https://chatgpt.com/
